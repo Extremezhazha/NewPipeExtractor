@@ -43,7 +43,7 @@ public final class ServiceList {
      * When creating a new service, put this service in the end of this list,
      * and give it the next free id.
      */
-    private static final List<StreamingService> SERVICES = unmodifiableList(
+    private static List<StreamingService> SERVICES = unmodifiableList(
             asList(
                     YouTube = new YoutubeService(0),
                     SoundCloud = new SoundcloudService(1),
