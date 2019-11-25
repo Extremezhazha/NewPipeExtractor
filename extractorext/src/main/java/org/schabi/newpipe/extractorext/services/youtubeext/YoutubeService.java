@@ -64,7 +64,7 @@ import org.schabi.newpipe.extractorext.services.youtubeext.linkHandler.YoutubeTr
 public class YoutubeService extends StreamingService {
 
     public YoutubeService(int id) {
-        super(id, "YouTube", asList(AUDIO, VIDEO, LIVE, COMMENTS));
+        super(id, "YouTube1", asList(AUDIO, VIDEO, LIVE, COMMENTS));
     }
 
     @Override
