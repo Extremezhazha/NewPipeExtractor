@@ -1,4 +1,4 @@
-package org.schabi.newpipe.extractor.timeago;
+package org.schabi.newpipe.extractorext.timeago;
 
 public class TimeAgoPatternsManager {
     public static final String RESOURCE_BUNDLE_ARRAY_SEPARATOR = "»»";

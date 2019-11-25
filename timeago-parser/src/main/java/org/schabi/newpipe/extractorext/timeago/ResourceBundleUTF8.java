@@ -1,4 +1,4 @@
-package org.schabi.newpipe.extractor.timeago;
+package org.schabi.newpipe.extractorext.timeago;
 
 import java.io.IOException;
 import java.io.InputStream;
