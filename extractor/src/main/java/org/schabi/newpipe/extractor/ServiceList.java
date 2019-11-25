@@ -4,10 +4,13 @@ import org.schabi.newpipe.extractor.services.media_ccc.MediaCCCService;
 import org.schabi.newpipe.extractor.services.soundcloud.SoundcloudService;
 import org.schabi.newpipe.extractor.services.youtube.YoutubeService;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.unmodifiableList;
 
 /*
  * Copyright (C) Christian Schabesberger 2018 <chris.schabesberger@mailbox.org>
@@ -43,12 +46,13 @@ public final class ServiceList {
      * When creating a new service, put this service in the end of this list,
      * and give it the next free id.
      */
-    private static List<StreamingService> SERVICES =
-            asList(
-                    YouTube = new YoutubeService(0),
-                    SoundCloud = new SoundcloudService(1),
-                    MediaCCC = new MediaCCCService(2)
-            );
+    private static List<StreamingService> SERVICES = new ArrayList<>(asList(
+            YouTube = new YoutubeService(0),
+            SoundCloud = new SoundcloudService(1),
+            MediaCCC = new MediaCCCService(2)
+    ));
+
+    private static Set<String> ADDED_SERVICES = new HashSet<>();
 
     /**
      * Get all the supported services.
@@ -59,5 +63,17 @@ public final class ServiceList {
         return SERVICES;
     }
 
-    public static int nextId(){ return SERVICES.size(); }
+    public static void addService(Function<Integer, StreamingService> constructService) {
+        StreamingService currentService = constructService.apply(SERVICES.size());
+        if (!ADDED_SERVICES.contains(currentService.getServiceInfo().getName())) {
+            ADDED_SERVICES.add(currentService.getServiceInfo().getName());
+            SERVICES.add(currentService);
+        }
+    }
+
+    public static void addServices(List<Function<Integer, StreamingService>> constructServiceList) {
+        for (Function<Integer, StreamingService> constructService : constructServiceList)
+            addService(constructService);
+    }
+
 }
