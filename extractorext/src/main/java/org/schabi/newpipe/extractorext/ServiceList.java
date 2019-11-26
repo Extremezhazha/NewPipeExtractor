@@ -1,5 +1,6 @@
 package org.schabi.newpipe.extractorext;
 
+import org.schabi.newpipe.extractor.StreamingServiceFactory;
 import org.schabi.newpipe.extractorext.services.youtubeext.YoutubeService;
 
 import java.util.List;
@@ -35,17 +36,23 @@ public final class ServiceList {
         //no instance
     }
 
-    private static StreamingService makeService(Integer index) {
-        return null;
+    private static class YoutubeServiceFactory implements StreamingServiceFactory {
+
+        @Override
+        public StreamingService make(int index) {
+            return new YoutubeService(index);
+        }
     }
+
+    private static StreamingServiceFactory factory;
+
     /**
      * When creating a new service, put this service in the end of this list,
      * and give it the next free id.
      */
-    private static List<Function<Integer, StreamingService>> SERVICES =
+    private static List<StreamingServiceFactory> SERVICES =
             asList(
-                    (Function<Integer, StreamingService>)
-                            ServiceList::makeService
+                    factory = new YoutubeServiceFactory()
             );
 
     /**
@@ -53,7 +60,7 @@ public final class ServiceList {
      *
      * @return a unmodifiable list of all the supported services
      */
-    public static List<Function<Integer, StreamingService>> all() {
+    public static List<StreamingServiceFactory> all() {
         return SERVICES;
     }
 

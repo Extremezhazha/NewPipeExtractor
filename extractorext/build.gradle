@@ -14,7 +14,7 @@ dependencies {
     implementation 'org.nibor.autolink:autolink:0.8.0'
 
 
-    implementation 'com.github.Extremezhazha:NewPipeExtractor:bf3ce4a'
+    implementation 'com.github.Extremezhazha:NewPipeExtractor:ae29610'
 
     testImplementation 'junit:junit:4.12'
 }

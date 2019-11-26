@@ -21,6 +21,7 @@ package org.schabi.newpipe.extractorext;
  */
 
 import org.schabi.newpipe.extractor.StreamingService;
+import org.schabi.newpipe.extractor.StreamingServiceFactory;
 
 import java.util.List;
 import java.util.function.Function;
@@ -34,7 +35,7 @@ public class NewPipeExt {
     }
 
 
-    public static List<Function<Integer, StreamingService>> getAddList() {
+    public static List<StreamingServiceFactory> getAddList() {
         return ServiceList.all();
     }
 }
