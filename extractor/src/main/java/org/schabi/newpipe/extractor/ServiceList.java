@@ -65,8 +65,9 @@ public final class ServiceList {
 
     public static void addService(Function<Integer, StreamingService> constructService) {
         StreamingService currentService = constructService.apply(SERVICES.size());
-        if (!ADDED_SERVICES.contains(currentService.getServiceInfo().getName())) {
-            ADDED_SERVICES.add(currentService.getServiceInfo().getName());
+        String serviceName = currentService.getServiceInfo().getName();
+        if (!ADDED_SERVICES.contains(serviceName)) {
+            ADDED_SERVICES.add(serviceName);
             SERVICES.add(currentService);
         }
     }
