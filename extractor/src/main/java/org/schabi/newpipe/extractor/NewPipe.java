@@ -53,11 +53,11 @@ public class NewPipe {
         return ServiceList.all();
     }
 
-    public static void addService(Function<Integer, StreamingService> constructService) {
+    public static void addService(StreamingServiceFactory constructService) {
         ServiceList.addService(constructService);
     }
 
-    public static void addServices(List<Function<Integer, StreamingService>> constructServiceList) {
+    public static void addServices(List<StreamingServiceFactory> constructServiceList) {
         ServiceList.addServices(constructServiceList);
     }
 

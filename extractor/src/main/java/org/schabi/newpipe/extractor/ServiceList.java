@@ -63,8 +63,8 @@ public final class ServiceList {
         return SERVICES;
     }
 
-    public static void addService(Function<Integer, StreamingService> constructService) {
-        StreamingService currentService = constructService.apply(SERVICES.size());
+    public static void addService(StreamingServiceFactory constructService) {
+        StreamingService currentService = constructService.make(SERVICES.size());
         String serviceName = currentService.getServiceInfo().getName();
         if (!ADDED_SERVICES.contains(serviceName)) {
             ADDED_SERVICES.add(serviceName);
@@ -72,8 +72,8 @@ public final class ServiceList {
         }
     }
 
-    public static void addServices(List<Function<Integer, StreamingService>> constructServiceList) {
-        for (Function<Integer, StreamingService> constructService : constructServiceList)
+    public static void addServices(List<StreamingServiceFactory> constructServiceList) {
+        for (StreamingServiceFactory constructService : constructServiceList)
             addService(constructService);
     }
 
