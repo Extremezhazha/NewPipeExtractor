@@ -148,7 +148,7 @@ public class YoutubeTrendingExtractor extends KioskExtractor<StreamInfoItem> {
                             Element te = li.select("span[class=\"yt-thumb-simple\"]").first()
                                     .select("img").first();
                             url = te.attr("abs:src");
-                            // Sometimes youtubeext sends links to gif files which somehow seem to not exist
+                            // Sometimes youtube sends links to gif files which somehow seem to not exist
                             // anymore. Items with such gif also offer a secondary image source. So we are going
                             // to use that if we've caught such an item.
                             if (url.contains(".gif")) {

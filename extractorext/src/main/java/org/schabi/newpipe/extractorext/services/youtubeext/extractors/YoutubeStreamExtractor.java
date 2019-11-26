@@ -214,7 +214,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
 
                 if(link != null) {
                     // if link is null the a tag is a hashtag.
-                    // They refer to the youtubeext search. We do not handle them.
+                    // They refer to the youtube search. We do not handle them.
                     a.text(link);
                     a.attr("href", link);
                 } else if(redirectLink.toString().contains("https://www.youtube.com/")) {

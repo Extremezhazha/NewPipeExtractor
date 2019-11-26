@@ -32,13 +32,13 @@ public class YoutubeParsingHelper {
 
     public static boolean isYoutubeURL(URL url) {
         String host = url.getHost();
-        return host.equalsIgnoreCase("youtubeext.com") || host.equalsIgnoreCase("www.youtubeext.com")
-                || host.equalsIgnoreCase("m.youtubeext.com") || host.equalsIgnoreCase("music.youtubeext.com");
+        return host.equalsIgnoreCase("youtube.com") || host.equalsIgnoreCase("www.youtube.com")
+                || host.equalsIgnoreCase("m.youtube.com") || host.equalsIgnoreCase("music.youtube.com");
     }
 
     public static boolean isYoutubeServiceURL(URL url) {
         String host = url.getHost();
-        return host.equalsIgnoreCase("www.youtubeext-nocookie.com") || host.equalsIgnoreCase("youtu.be");
+        return host.equalsIgnoreCase("www.youtube-nocookie.com") || host.equalsIgnoreCase("youtu.be");
     }
 
     public static boolean isHooktubeURL(URL url) {

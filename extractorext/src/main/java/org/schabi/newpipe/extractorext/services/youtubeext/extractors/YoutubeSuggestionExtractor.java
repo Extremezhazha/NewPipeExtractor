@@ -49,7 +49,7 @@ public class YoutubeSuggestionExtractor extends SuggestionExtractor {
         List<String> suggestions = new ArrayList<>();
 
         String url = "https://suggestqueries.google.com/complete/search"
-                + "?client=" + "youtubeext" //"firefox" for JSON, 'toolbar' for xml
+                + "?client=" + "youtube" //"firefox" for JSON, 'toolbar' for xml
                 + "&jsonp=" + "JP"
                 + "&ds=" + "yt"
                 + "&hl=" + URLEncoder.encode(getLocalization().getCountry(), CHARSET_UTF_8)

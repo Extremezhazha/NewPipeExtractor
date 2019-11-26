@@ -31,7 +31,7 @@ public class YoutubeCommentsLinkHandlerFactory extends ListLinkHandlerFactory {
 
         String id;
         String lowercaseUrl = url.toLowerCase();
-        if (lowercaseUrl.contains("youtubeext")) {
+        if (lowercaseUrl.contains("youtube")) {
             if (url.contains("attribution_link")) {
                 try {
                     String escapedQuery = Parser.matchGroup1("u=(.[^&|$]*)", url);
@@ -40,7 +40,7 @@ public class YoutubeCommentsLinkHandlerFactory extends ListLinkHandlerFactory {
                 } catch (UnsupportedEncodingException uee) {
                     throw new ParsingException("Could not parse attribution_link", uee);
                 }
-            } else if (url.contains("vnd.youtubeext")) {
+            } else if (url.contains("vnd.youtube")) {
                 id = Parser.matchGroup1(ID_PATTERN, url);
             } else if (url.contains("embed")) {
                 id = Parser.matchGroup1("embed/" + ID_PATTERN, url);
@@ -83,7 +83,7 @@ public class YoutubeCommentsLinkHandlerFactory extends ListLinkHandlerFactory {
     @Override
     public boolean onAcceptUrl(final String url) throws FoundAdException {
         final String lowercaseUrl = url.toLowerCase();
-        if (lowercaseUrl.contains("youtubeext")
+        if (lowercaseUrl.contains("youtube")
                 || lowercaseUrl.contains("youtu.be")
                 || lowercaseUrl.contains("hooktube")) {
             // bad programming I know
