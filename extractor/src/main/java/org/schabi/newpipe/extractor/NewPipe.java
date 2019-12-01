@@ -24,7 +24,6 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.utils.Localization;
 
 import java.util.List;
-import java.util.function.Function;
 
 /**
  * Provides access to streaming services supported by NewPipe.
@@ -59,6 +58,10 @@ public class NewPipe {
 
     public static void addServices(List<StreamingServiceFactory> constructServiceList) {
         ServiceList.addServices(constructServiceList);
+    }
+
+    public static void reset() {
+        ServiceList.reset();
     }
 
     public static StreamingService getService(int serviceId) throws ExtractionException {
