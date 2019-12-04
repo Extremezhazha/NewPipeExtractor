@@ -79,6 +79,7 @@ public final class ServiceList {
 
     public static void reset() {
         SERVICES.subList(3, SERVICES.size()).clear();
+        ADDED_SERVICES.clear();
     }
 
 }
